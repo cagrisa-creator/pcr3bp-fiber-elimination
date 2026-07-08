@@ -1,0 +1,13 @@
+v1.3.1 exhaustive validation (n_th=400, n_s=160, n_phi=512)
+
+CSV cross-check mu=0.05  dc=1e-4 (was false-convex in v1)  D_min=-2.4981e+00  ok
+CSV cross-check mu=0.9   dc=1e-3                           D_min=+4.0442e-03  ok
+CSV cross-check mu=0.97  dc=1e-4                           D_min=+4.5853e-05  ok
+Light boundary: m_r=0.05 side (negative)                   D_min=-2.6125e-06  ok
+Light boundary: m_r=0.04 side (positive)                   D_min=+3.9792e-05  ok
+EARTH component m_r=0.9878, dc=1e-4 (macroscopic lobe)     D_min=-1.8106e+00  ok
+EARTH recovery bracket low  dc=1.1e-2 (negative)           D_min=-9.4856e-03  ok
+EARTH recovery bracket high dc=1.2e-2 (positive)           D_min=+1.0943e-01  ok
+MOON component m_r=0.0122, dc=1e-4 (convex; tiny margin)   D_min=+1.5584e-05  ok
+
+PASS_V130_VALIDATION

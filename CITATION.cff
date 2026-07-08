@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying paper, please cite them."
+title: "Exact fiber elimination for the Levi--Civita convexity gates of the planar restricted three-body problem"
+authors:
+  - family-names: Grisa
+    given-names: César Augusto
+    affiliation: "Universidade Federal Fluminense"
+    email: cagrisa@id.uff.br
+version: "1.3.2"
+date-released: "2026-07-08"
+license: MIT
+keywords:
+  - restricted three-body problem
+  - Levi-Civita regularization
+  - strict convexity
+  - global surface of section
+  - Birkhoff conjecture
+  - computer-assisted proof
+abstract: >-
+  Computer-assisted strict-convexity certification of the regularized energy
+  surfaces of the planar circular restricted three-body problem reduces to the
+  positivity of two scalar gates over a four-dimensional domain (a two-dimensional
+  Levi-Civita base times a fiber angle). This package proves four exact algebraic
+  identities that eliminate the fiber angle in closed form, reducing both gates to
+  the two-dimensional base, together with a global floating-point reconnaissance of
+  Levi-Civita convexity across the mass-energy plane and a fine-structure analysis
+  showing the non-convexity is confined to a single simple fold on a radially
+  star-shaped base.
