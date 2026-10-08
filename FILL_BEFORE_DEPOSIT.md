@@ -1,13 +1,26 @@
-# Fill before deposit (1 minute)
+# Fill before Zenodo deposit
 
-The three identifiers below are the depositor's own and are intentionally
-placeholders in the package. From the repository root, run (with your values):
+The GitHub repository URL is already fixed:
 
-    NEW_GH="https://github.com/USER/REPO"
+    https://github.com/cagrisa-creator/pcr3bp-fiber-elimination
+
+The remaining identifier is the Zenodo DOI. Do **not** publish the Zenodo record yet.
+
+Recommended workflow:
+
+1. Create a Zenodo draft manually.
+2. Reserve a DOI.
+3. Copy the reserved DOI into:
+   - `paper/main.tex`
+   - `CITATION.cff`
+   - Zenodo metadata / related identifiers, as appropriate
+4. Rebuild `paper/main.pdf` from the updated TeX source.
+5. Commit the DOI-synchronized files.
+6. Only then tag/release and publish the Zenodo record.
+
+Useful replacement command after the DOI has been reserved:
+
     NEW_DOI="https://doi.org/10.5281/zenodo.NNNNNNN"
-    grep -rl "seu-usuario" --include="*.tex" --include="*.md" . | xargs sed -i "s|https://github.com/seu-usuario/seu-repositorio|$NEW_GH|g"
-    grep -rl "zenodo.XXXXXXX" --include="*.tex" --include="*.md" . | xargs sed -i "s|https://doi.org/10.5281/zenodo.XXXXXXX|$NEW_DOI|g"
-    # HAL id (hal-XXXXXXXX) appears only in docs/HAL.md instructions.
+    grep -rl "Zenodo DOI" --include="*.tex" --include="*.md" .
 
-Then recompile the paper (3x pdflatex), regenerate main.docx (pandoc),
-refresh hal_submission/ (main.pdf + source_bundle.zip) and results/SHA256SUMS.
+At the current R04 review stage, the manuscript intentionally says that the verified Zenodo DOI and archival release are still pending. Replace that revision-stage note only after the DOI is actually reserved.
