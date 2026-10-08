@@ -1,9 +1,27 @@
-57fa73dbe3020d9548dec388dfecd77e5771e89b98162715e0335a6b4f948064  paper/main.tex
-b25912f4d41ab6aab98ad926f9ee3d4e9345f8e587de8b6104f58531fab687ad  paper/main.pdf
-fcb39f9b1e5e743719eb8fed27865b76f90c9f69d62c39f406e1111b85926967  paper/figures/dynamical_relevance.png
-52bd60cd7c1fdcf37e5990897687c4dfb7c5800196828785982c58c494642f7f  paper/figures/lobe_structure.png
-00331e6b5a506658386b8f2479ad32220b7456d46afc577c7fca98ffc1d9b9fd  paper/figures/phase_map.png
-e567145de1c2269622b6ebc87bd2ae98cb07cd39a94517531bf78bb77580021c  README.md
-2ef999ab6225abcf8efd0505d07d20e9fbe9535e3ff9388287def17c9db313cb  CITATION.cff
-c052fea7b7a2e5cf523f27f151e14177916d8011885045dd535a658ed419e37f  docs/REVISION_R04_NOTES.md
-d4ad0aa383e195ca1e1fdc734612f3d7ef3132c46dd680d0a07caff51b2a9a54  paper/DOCX_NOTES.md
+# R04 branch upload/check status
+
+This file was originally created as a checksum/checklist before the local GitHub Desktop upload.
+After the local push, the R04 manuscript source, compiled PDF, and revised figure files are present in the branch.
+
+Uploaded through GitHub Desktop:
+
+- paper/main.tex
+- paper/main.pdf
+- paper/figures/phase_map.png
+- paper/figures/dynamical_relevance.png
+
+Metadata updated through the GitHub connector after inspection:
+
+- README.md
+- CITATION.cff
+- FILL_BEFORE_DEPOSIT.md
+
+Still pending before final release:
+
+- reserve Zenodo DOI manually;
+- insert DOI into manuscript and metadata;
+- rebuild paper/main.pdf after DOI insertion;
+- commit DOI-synchronized files;
+- then tag/release and publish Zenodo.
+
+No Zenodo DOI is claimed by this branch yet.
