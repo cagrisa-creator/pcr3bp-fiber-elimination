@@ -1,13 +1,14 @@
 cff-version: 1.2.0
-message: "If you use this review-stage software/manuscript package, please cite the final archived release once the Zenodo DOI is available."
+message: "If you use this software or the accompanying manuscript package, please cite the archived Zenodo release."
 title: "Exact fiber elimination for the Levi--Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
 authors:
   - family-names: Grisa
     given-names: César Augusto
     affiliation: "Universidade Federal Fluminense"
     email: cagrisa@id.uff.br
-version: "1.4.0-rc1"
+version: "1.4.0"
 date-released: "2026-10-08"
+doi: "10.5281/zenodo.23244862"
 license: MIT
 repository-code: "https://github.com/cagrisa-creator/pcr3bp-fiber-elimination"
 keywords:
@@ -18,14 +19,13 @@ keywords:
   - computer-assisted proof
   - numerical reconnaissance
 abstract: >-
-  This review-stage package accompanies a revised manuscript on exact fiber
-  elimination for the Levi-Civita convexity gates of the planar circular
-  restricted three-body problem. For fixed parameters, the regularized surface is
-  tested over a three-dimensional domain: a two-dimensional Levi-Civita base and
-  a fiber angle. The tangential gate has an exact two-variable fiber minimum,
-  while the determinant gate has an exact harmonic decomposition giving a
-  rigorous sufficient two-variable lower bound. The package also contains a
-  numerical Earth-Moon spot check and a floating-point global reconnaissance;
-  these numerical components are not interval certificates unless explicitly
-  stated otherwise. A final Zenodo DOI is still pending and must be inserted
-  before public release/resubmission.
+  This package accompanies a revised manuscript on exact fiber elimination for
+  the Levi-Civita convexity gates of the planar circular restricted three-body
+  problem. For fixed parameters, the regularized surface is tested over a
+  three-dimensional domain: a two-dimensional Levi-Civita base and a fiber
+  angle. The tangential gate has an exact two-variable fiber minimum, while the
+  determinant gate has an exact harmonic decomposition giving a rigorous
+  sufficient two-variable lower bound. The package also contains a numerical
+  Earth-Moon spot check and a floating-point global reconnaissance; these
+  numerical components are not interval certificates unless explicitly stated
+  otherwise.

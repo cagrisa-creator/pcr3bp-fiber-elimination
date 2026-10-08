@@ -1,26 +1,12 @@
-# Fill before Zenodo deposit
+# Zenodo deposit checklist
 
-The GitHub repository URL is already fixed:
+DOI:
 
-    https://github.com/cagrisa-creator/pcr3bp-fiber-elimination
+    https://doi.org/10.5281/zenodo.23244862
 
-The remaining identifier is the Zenodo DOI. Do **not** publish the Zenodo record yet.
+Before final journal resubmission, confirm that:
 
-Recommended workflow:
-
-1. Create a Zenodo draft manually.
-2. Reserve a DOI.
-3. Copy the reserved DOI into:
-   - `paper/main.tex`
-   - `CITATION.cff`
-   - Zenodo metadata / related identifiers, as appropriate
-4. Rebuild `paper/main.pdf` from the updated TeX source.
-5. Commit the DOI-synchronized files.
-6. Only then tag/release and publish the Zenodo record.
-
-Useful replacement command after the DOI has been reserved:
-
-    NEW_DOI="https://doi.org/10.5281/zenodo.NNNNNNN"
-    grep -rl "Zenodo DOI" --include="*.tex" --include="*.md" .
-
-At the current R04 review stage, the manuscript intentionally says that the verified Zenodo DOI and archival release are still pending. Replace that revision-stage note only after the DOI is actually reserved.
+1. The Zenodo record is public and resolves at the DOI above.
+2. `paper/main.tex`, `paper/main.pdf`, `README.md`, and `CITATION.cff` contain the same DOI.
+3. The uploaded Zenodo files match the GitHub release/tag used for the revised package.
+4. The response to the referee cites the same GitHub repository and DOI.
