@@ -8,49 +8,52 @@ Reproducibility package and manuscript sources for
 
 ## Branch status
 
-This branch contains **CMDA R04 staging metadata** for the author-review draft prepared after the minor-revision report.
+This branch is the **CMDA R04 author-review staging branch** prepared after the minor-revision report.
 
-It is **not** the final public release and **not** yet the exact package to archive on Zenodo. The R04 manuscript/PDF/figure binaries remain in the private R04 package until they can be committed with a normal git client or another binary-safe GitHub upload path.
-
-## Why this branch exists
-
-The available connector in this session can safely create and update UTF-8 text files, but it does not provide a binary-safe upload path for the revised PDF and PNG figure files. To avoid a half-synchronized repository, this branch records the R04 state, checksums, and next steps without replacing the old PDF/figures in place.
-
-## R04 scope
-
-- Keeps the paper focused on exact fiber elimination and numerical reconnaissance.
-- Removes the unsupported companion-manuscript dependency from the working draft.
-- Does not import material from the separate G459 manuscript.
-- Addresses the referee's precision requests on dimension counting, the base/collar distinction, determinant lower bound versus true fiber minimum, numerical evidence versus interval certification, notation, bibliography, and identifiers.
-
-## Files added in this branch
-
-- `docs/REVISION_R04_NOTES.md` - author-review staging notes.
-- `R04_UPLOAD_SHA256SUMS.txt` - checksums for the R04 files that must be synchronized.
-- `patches/R04_main_tex.patch` - staging instructions for applying the R04 source package.
-
-## Files that must still be synchronized before release
+It now contains the R04 manuscript source, compiled PDF, and revised figure files that were uploaded through GitHub Desktop:
 
 - `paper/main.tex`
 - `paper/main.pdf`
 - `paper/figures/phase_map.png`
 - `paper/figures/dynamical_relevance.png`
-- `paper/figures/lobe_structure.png`
-- `CITATION.cff`
-- any HAL/Zenodo metadata
-- DOCX files, if required, regenerated from the final approved LaTeX source
 
-## Final release workflow
+It is still **not** the final public release and **not** yet the exact package to archive on Zenodo, because the Zenodo DOI and final deposit metadata have not yet been reserved/inserted.
 
-1. Apply the R04 package locally with a normal git client.
-2. Rebuild `paper/main.pdf` from `paper/main.tex`.
-3. Confirm file checksums against `R04_UPLOAD_SHA256SUMS.txt` or regenerate the manifest after any intentional change.
-4. Re-run the symbolic and numerical QA.
-5. Create the final tag.
-6. Reserve/create the Zenodo DOI from that exact tag.
-7. Insert the DOI into the manuscript and metadata.
-8. Rebuild, re-check, and tag the final release.
+## R04 scope
+
+- Keeps the paper focused on exact fiber elimination and numerical reconnaissance.
+- Removes the unsupported companion-manuscript dependency from the manuscript draft.
+- Does not import material from the separate G459 manuscript.
+- Addresses the referee's precision requests on dimension counting, the base/collar distinction, determinant lower bound versus true fiber minimum, numerical evidence versus interval certification, notation, bibliography, and identifiers.
+
+## What is rigorous, and what is reconnaissance
+
+- **Rigorous:** the exact algebraic fiber-elimination identities and the symbolic audit.
+- **Rigorous sufficient bound:** the determinant gate is treated by an exact harmonic decomposition and a rigorous two-variable lower bound.
+- **Numerical spot check:** the Earth-Moon values in the revised manuscript are pointwise numerical checks, not interval certificates.
+- **Floating-point reconnaissance:** the global mass-energy map and dynamical-relevance observations are exploratory and are labeled as such.
+
+## Files added for the R04 review workflow
+
+- `docs/REVISION_R04_NOTES.md` - author-review staging notes.
+- `R04_UPLOAD_SHA256SUMS.txt` - checksums for the generated R04 package files.
+- `patches/R04_main_tex.patch` - staging notes for applying/checking the R04 source package.
+- `scripts/APPLY_R04_FROM_ZIP.sh` - optional local helper script.
+
+## Still pending before final release
+
+1. Inspect the PR files on GitHub, especially the PDF, TeX source, figures, README, and CITATION metadata.
+2. Re-run local QA/reproducibility checks if a full local scientific release is desired.
+3. Create a Zenodo draft and reserve a DOI manually, without publishing yet.
+4. Insert the reserved DOI into `paper/main.tex`, `CITATION.cff`, and any deposit metadata.
+5. Rebuild `paper/main.pdf` after DOI insertion.
+6. Commit the DOI-synchronized files.
+7. Only then mark the PR ready, merge/tag/release, and publish the Zenodo record.
+
+## Current DOI status
+
+No Zenodo DOI is claimed in this branch yet. The manuscript contains a revision-stage note saying that the verified Zenodo DOI and archival release are still pending.
 
 ## Historical baseline
 
-The historical public baseline remains v1.3.2. It should not be cited as containing the R04 revision until the final synchronized files are committed and tagged.
+The historical public baseline remains v1.3.2. This R04 branch is a review-stage update and should not be cited as a final archived release until the DOI-synchronized release is tagged and deposited.
