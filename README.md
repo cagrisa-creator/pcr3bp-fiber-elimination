@@ -23,7 +23,7 @@ It is still **not** the final public release and **not** yet the exact package t
 
 - Keeps the paper focused on exact fiber elimination and numerical reconnaissance.
 - Removes the unsupported companion-manuscript dependency from the manuscript draft.
-- Does not import material from the separate G459 manuscript.
+- Does not add material from outside the submitted-manuscript and referee-response scope.
 - Addresses the referee's precision requests on dimension counting, the base/collar distinction, determinant lower bound versus true fiber minimum, numerical evidence versus interval certification, notation, bibliography, and identifiers.
 
 ## What is rigorous, and what is reconnaissance
