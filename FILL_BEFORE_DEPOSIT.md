@@ -1,13 +1,12 @@
-# Fill before deposit (1 minute)
+# Zenodo deposit checklist
 
-The three identifiers below are the depositor's own and are intentionally
-placeholders in the package. From the repository root, run (with your values):
+DOI:
 
-    NEW_GH="https://github.com/USER/REPO"
-    NEW_DOI="https://doi.org/10.5281/zenodo.NNNNNNN"
-    grep -rl "seu-usuario" --include="*.tex" --include="*.md" . | xargs sed -i "s|https://github.com/seu-usuario/seu-repositorio|$NEW_GH|g"
-    grep -rl "zenodo.XXXXXXX" --include="*.tex" --include="*.md" . | xargs sed -i "s|https://doi.org/10.5281/zenodo.XXXXXXX|$NEW_DOI|g"
-    # HAL id (hal-XXXXXXXX) appears only in docs/HAL.md instructions.
+    https://doi.org/10.5281/zenodo.23244862
 
-Then recompile the paper (3x pdflatex), regenerate main.docx (pandoc),
-refresh hal_submission/ (main.pdf + source_bundle.zip) and results/SHA256SUMS.
+Before final journal resubmission, confirm that:
+
+1. The Zenodo record is public and resolves at the DOI above.
+2. `paper/main.tex`, `paper/main.pdf`, `README.md`, and `CITATION.cff` contain the same DOI.
+3. The uploaded Zenodo files match the GitHub release/tag used for the revised package.
+4. The response to the referee cites the same GitHub repository and DOI.

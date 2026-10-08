@@ -1,28 +1,31 @@
 cff-version: 1.2.0
-message: "If you use this software or the accompanying paper, please cite them."
-title: "Exact fiber elimination for the Levi--Civita convexity gates of the planar restricted three-body problem"
+message: "If you use this software or the accompanying manuscript package, please cite the archived Zenodo release."
+title: "Exact fiber elimination for the Levi--Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
 authors:
   - family-names: Grisa
     given-names: César Augusto
     affiliation: "Universidade Federal Fluminense"
     email: cagrisa@id.uff.br
-version: "1.3.2"
-date-released: "2026-07-08"
+version: "1.4.0"
+date-released: "2026-10-08"
+doi: "10.5281/zenodo.23244862"
 license: MIT
+repository-code: "https://github.com/cagrisa-creator/pcr3bp-fiber-elimination"
 keywords:
   - restricted three-body problem
   - Levi-Civita regularization
   - strict convexity
-  - global surface of section
-  - Birkhoff conjecture
+  - convexity gates
   - computer-assisted proof
+  - numerical reconnaissance
 abstract: >-
-  Computer-assisted strict-convexity certification of the regularized energy
-  surfaces of the planar circular restricted three-body problem reduces to the
-  positivity of two scalar gates over a four-dimensional domain (a two-dimensional
-  Levi-Civita base times a fiber angle). This package proves four exact algebraic
-  identities that eliminate the fiber angle in closed form, reducing both gates to
-  the two-dimensional base, together with a global floating-point reconnaissance of
-  Levi-Civita convexity across the mass-energy plane and a fine-structure analysis
-  showing the non-convexity is confined to a single simple fold on a radially
-  star-shaped base.
+  This package accompanies a revised manuscript on exact fiber elimination for
+  the Levi-Civita convexity gates of the planar circular restricted three-body
+  problem. For fixed parameters, the regularized surface is tested over a
+  three-dimensional domain: a two-dimensional Levi-Civita base and a fiber
+  angle. The tangential gate has an exact two-variable fiber minimum, while the
+  determinant gate has an exact harmonic decomposition giving a rigorous
+  sufficient two-variable lower bound. The package also contains a numerical
+  Earth-Moon spot check and a floating-point global reconnaissance; these
+  numerical components are not interval certificates unless explicitly stated
+  otherwise.

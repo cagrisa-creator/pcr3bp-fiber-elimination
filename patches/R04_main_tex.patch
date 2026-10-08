@@ -1,0 +1,16 @@
+# R04 main.tex patch
+
+The full R04 source patch is preserved in the private working package `CMDA_FIBER_R04_AUTOCITACAO_20261008.zip` and should be applied with a normal git client together with the synchronized binary figure/PDF updates.
+
+This repository connector session can create/update UTF-8 text files, but it cannot safely upload the R04 binary figures or compiled PDF. For that reason I am not replacing `paper/main.tex` on this branch until the binary artifacts can be committed in the same git operation.
+
+Author-approved final workflow:
+
+1. Unpack `CMDA_FIBER_R04_AUTOCITACAO_20261008.zip`.
+2. Copy `working/paper/main.tex` to `paper/main.tex`.
+3. Copy `working/paper/figures/*.png` to `paper/figures/`.
+4. Rebuild `paper/main.pdf` from `paper/main.tex`.
+5. Remove stale DOCX files or regenerate DOCX from the approved source.
+6. Commit all synchronized files together.
+7. Tag the final approved release.
+8. Reserve/create Zenodo DOI from that exact tag and insert it before final journal resubmission.

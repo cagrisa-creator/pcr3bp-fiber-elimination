@@ -1,0 +1,27 @@
+# R04 branch upload/check status
+
+This file was originally created as a checksum/checklist before the local GitHub Desktop upload.
+After the local push, the R04 manuscript source, compiled PDF, and revised figure files are present in the branch.
+
+Uploaded through GitHub Desktop:
+
+- paper/main.tex
+- paper/main.pdf
+- paper/figures/phase_map.png
+- paper/figures/dynamical_relevance.png
+
+Metadata updated through the GitHub connector after inspection:
+
+- README.md
+- CITATION.cff
+- FILL_BEFORE_DEPOSIT.md
+
+Still pending before final release:
+
+- reserve Zenodo DOI manually;
+- insert DOI into manuscript and metadata;
+- rebuild paper/main.pdf after DOI insertion;
+- commit DOI-synchronized files;
+- then tag/release and publish Zenodo.
+
+No Zenodo DOI is claimed by this branch yet.
