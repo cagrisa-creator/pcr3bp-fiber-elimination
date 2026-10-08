@@ -7,7 +7,7 @@ Status: **review-stage branch; not final Zenodo release; not yet ready for journ
 ## Scope
 
 - The R04 revision removes the unsupported companion-manuscript dependency from the manuscript draft.
-- It keeps the separate G459 manuscript out of this article.
+- It does not add material from outside the submitted-manuscript and referee-response scope.
 - It addresses the referee's precision requests on dimension counting, the base/collar distinction, determinant lower bound versus true fiber minimum, numerical evidence versus interval certification, notation, bibliography, and identifiers.
 - The real GitHub repository URL is used.
 - A verified Zenodo DOI remains pending and must be inserted before final release/resubmission.
