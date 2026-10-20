@@ -1,0 +1,97 @@
+--- original/code/critical_shell.py
++++ revised/code/critical_shell.py
+@@ -4,7 +4,7 @@
+ convention, see convexity_map.py) (Section "Refinement at
+ the critical limit" of the paper).
+ 
+-Tracks the true fiber minimum of the determinant gate D as the energy
++Tracks a sampled estimate of the fiber minimum of the determinant gate D as the energy
+ offset dc = c - c_L1 tends to 0+, locates by bisection the width dc* of the
+ ultrathin non-convex shell, and reports the robustness checks quoted in the
+ paper (radial-refinement stability and location of the minimizing point).
+@@ -20,36 +20,16 @@
+ """
+ 
+ import numpy as np
+-import sympy as sp
+ from scipy.optimize import brentq
++from convexity_map import apply_collar_values, fA0, fA1, fB1, fA2, fB2
+ 
+ # ----------------------------------------------------------------------
+ # Exact symbolic layer: same formulas as convexity_map.py (Lemmas 1-4)
+ # ----------------------------------------------------------------------
+-z1, z2, mu, c = sp.symbols('z1 z2 mu c', real=True)
+-s_ = z1**2 + z2**2
+-a_ = z1**2 - z2**2
+-R_ = sp.sqrt(1 - 4*a_ + 4*s_**2)
+-F = 1 - mu + 2*mu*s_/R_ - 2*c*s_ + mu**2*s_ + 4*s_**3 - 4*mu*s_*a_
+-
+-Fz = sp.Matrix([sp.diff(F, z1), sp.diff(F, z2)])
+-Fzz = sp.hessian(F, (z1, z2))
+-M1 = sp.Matrix([[-4*z2, -4*z1], [-4*z1, -12*z2]])
+-M2 = sp.Matrix([[12*z1, 4*z2], [4*z2, 4*z1]])
+-L0 = -sp.Rational(1, 2)*Fzz
+-
+-adj = lambda M: sp.Matrix([[M[1, 1], -M[0, 1]], [-M[1, 0], M[0, 0]]])
+-sig = lambda A, B: sp.trace(A)*sp.trace(B) - sp.trace(A*B)
+-
+-A0e = (Fz.T*adj(L0)*Fz)[0] + 4*F*L0.det() + 64*F**2*s_
+-A1e = sp.sqrt(F)*((Fz.T*adj(M1)*Fz)[0] + 4*F*sig(L0, M1))
+-B1e = sp.sqrt(F)*((Fz.T*adj(M2)*Fz)[0] + 4*F*sig(L0, M2))
+-A2e = -128*F**2*a_
+-B2e = -256*F**2*z1*z2
+-
+-args = (z1, z2, mu, c)
+-fA0, fA1, fB1, fA2, fB2 = (sp.lambdify(args, e, 'numpy')
+-                           for e in (A0e, A1e, B1e, A2e, B2e))
++# Reuse the same audited harmonic coefficient functions as the phase map.
++# convexity_map loads the shipped expression cache (verified by
++# audit/verify_gates_cache.py), avoiding a duplicate symbolic determinant build.
++# This changes no algebraic formula or sampling resolution.
+ 
+ # ----------------------------------------------------------------------
+ # Critical energy c_L1 by robust bisection between the primaries
+@@ -73,7 +53,7 @@
+ 
+ 
+ def D_true_min(mu_val, c_val, n_th=600, n_s=400, report_location=False):
+-    """Minimum over the component of min_phi D, with D evaluated through
++    """Finite-grid estimate over the component of min_phi D, evaluated through
+     the exact degree-two trigonometric polynomial (Lemma 3) on the 120
+     worst base points of the amplitude bound UNION the entire collar band
+     (v1.3.0 fix; the bound is loose in the interior and sharp on the collar)."""
+@@ -110,6 +90,7 @@
+         A0 = fA0(X, Y, mu_val, c_val); A1 = fA1(X, Y, mu_val, c_val)
+         B1 = fB1(X, Y, mu_val, c_val); A2 = fA2(X, Y, mu_val, c_val)
+         B2 = fB2(X, Y, mu_val, c_val)
++        apply_collar_values(X, Y, mu_val, c_val, A0, A1, B1, A2, B2)
+         Db = A0 - np.sqrt(A1**2 + B1**2) - np.sqrt(A2**2 + B2**2)
+ 
+     # v1.3.0: exact evaluation on worst-120 of Db UNION the collar band
+@@ -153,7 +134,7 @@
+     ds = np.array([t[1] for t in track])
+     A, D0 = np.polyfit(dcs, ds, 1)
+     print(f"\nLinear extrapolation: D_min(dc) ~ {A:.3e} * dc + ({D0:+.3e})")
+-    print(f"  -> D_min(0+) ~ {D0:+.3e}  (strictly negative: intrinsic to the limit)")
++    print(f"  -> extrapolated D_min(0+) ~ {D0:+.3e}  (floating-point fit; no limiting value proved)")
+ 
+     # ---- 2. Shell width dc* by bisection ------------------------------
+     lo_dc, hi_dc = 1e-6, 2e-5
+@@ -165,14 +146,14 @@
+             lo_dc = mid
+     dc_star = (lo_dc + hi_dc)/2
+     print(f"\nShell width dc* = {dc_star:.4e}")
+-    print(f"Non-convex shell: c in (c_L1, {cl + dc_star:.10f}]")
++    print(f"Apparent sampled shell: c in (c_L1, {cl + dc_star:.10f}] (not interval-certified)")
+ 
+     # ---- 3. Robustness: location of the minimizing point --------------
+     Dm, th_s, sf = D_true_min(MU_DISTANT_EARTH, cl + 1e-6, report_location=True)
+     print(f"\nAt dc = 1e-6: D_min = {Dm:+.4e}, theta* = {th_s:.4f} "
+-          f"(heavy-primary collision axis), s/s_boundary = {sf:.3f}")
++          f"(base polar angle; no orbit identified), s/s_boundary = {sf:.3f}")
+     print("Minimizer is far from the s = 1/2 singularity guard: "
+-          "not a regularization artifact.")
++          "the sampling stays away from that numerical guard (not an error bound).")
+ 
+     # ---- 4. Radial-refinement stability check -------------------------
+     print("\nStability under radial refinement at dc = 3e-6:")

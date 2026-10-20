@@ -1,0 +1,6 @@
+Reference environment for the logs in this directory (v1.3.1/1.3.2 regeneration):
+Python 3.12.3 | SymPy 1.14.0 | NumPy 2.4.4 | SciPy 1.17.1 | Ubuntu 24.04
+Timings observed: fiber_elimination_audit.py ~1 s; run_all.py ~3-4 min;
+convexity_map.py full map ~4 min (192x80 grid); audit/v130_validation.py ~3 min.
+expected_output.txt and critical_shell_output.txt in this directory are the
+verbatim outputs of the v1.3.1 code in this environment.

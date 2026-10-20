@@ -1,0 +1,18 @@
+{
+  "elapsed_seconds": 88.2970000000023,
+  "pairs": 112,
+  "numerical_type": "float64; no interval certificates",
+  "historical_sign_changes": [],
+  "boundary_complete_sign_changes": [],
+  "max_wrapper_original_difference": 0.0,
+  "max_csv_D_abs_difference": 0.011143957376912983,
+  "max_csv_T_abs_difference": 6.9371591804312516e-15,
+  "max_csv_bound_abs_difference": 1.4573541373685828e-07,
+  "historical_boundary_samples_omitted": 1719,
+  "negatives_at_dc_01": [
+    0.987849414390376,
+    0.98,
+    0.95,
+    0.9
+  ]
+}

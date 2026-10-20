@@ -7,14 +7,14 @@ Runs the full pipeline and checks the key reproducible claims:
   2. The critical-energy sanity check c_L1(equal masses) = 2.000000.
   3. A spot reconnaissance at three (mu, c) points, checking the sign of the
      true determinant minimum against the paper's phase map:
-       - Earth--Moon MOON component (mu=0.9878, m_r=0.0122): convex (D_true > 0)
+       - Earth--Moon MOON component (mu=0.9878, m_r=0.0122): positive sampled gate (D_true > 0)
        - Earth--Moon EARTH component (mu=0.0122, m_r=0.9878), near critical:
-         non-convex (D_true < 0)  [new in v1.3.0 -- was a false 'convex' before]
-       - equal masses, near critical  : non-convex (D_true < 0)
+         negative sampled determinant (D_true < 0)  [new in v1.3.0 -- was a false 'convex' before]
+       - equal masses, near critical  : negative sampled determinant (D_true < 0)
        - unequal masses, larger energy: convex   (D_true > 0)
   4. The fine structure of the non-convexity lobes (Observation 6.2): across
      the comparable-mass band the reduced tangential gate calT stays positive
-     inside every lobe (single simple fold), and the collar radial derivative
+     inside every lobe (one negative direction at sampled points), and the collar radial derivative
      dF/dr stays negative (fiberwise star-shapedness).
   5. The closed form for the regularized rotation term in Kim's doubly-covered
      elliptic coordinates (eq. (rotation) of the paper), checked symbolically
@@ -81,11 +81,11 @@ def check_map():
 def check_relevance():
     print("[3/5] Dynamical-relevance observation (on-axis check) ...")
     import numpy as np
-    from dynamical_relevance import Dmin, sstar
+    from lobe_structure import Dmin, sstar
     from convexity_map import cL1_of
     mf, cc = 0.5, cL1_of(0.5) + 1e-3
     ok = True
-    for th, name in [(0.0, 'retrograde axis (z2=0)'), (np.pi/2, 'direct axis (z1=0)')]:
+    for th, name in [(0.0, 'base axis z2=0'), (np.pi/2, 'base axis z1=0')]:
         r0 = sstar(th, mf, cc)
         vals = [Dmin(np.sqrt(fr*r0)*np.cos(th), np.sqrt(fr*r0)*np.sin(th), mf, cc)
                 for fr in np.linspace(0.1, 0.999, 40)]
@@ -109,7 +109,7 @@ def check_lobe_structure():
               % (mf, band, r['minT'], r['max_dFdr']))
         ok_fold &= (r['minT'] is not None and r['minT'] > 0)
         ok_star &= (r['max_dFdr'] < 0)
-    print("      simple fold (calT>0 in lobes): %s" % ('ok' if ok_fold else 'FAIL'))
+    print("      one negative direction (calT>0 at sampled lobe points): %s" % ('ok' if ok_fold else 'FAIL'))
     print("      radial transversality (dF/dr<0): %s" % ('ok' if ok_star else 'FAIL'))
     ok = ok_fold and ok_star
     print("      -> %s" % ('PASS' if ok else 'FAIL'))

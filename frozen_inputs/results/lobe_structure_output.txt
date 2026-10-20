@@ -1,0 +1,12 @@
+Fine structure of the non-convexity lobes  (c = c_L1 + 1e-3)
+====================================================================================
+mu     lobe band (deg)      min D in lobe   min calT in lobe max dF/dr collar
+0.20   [2.7, 11.8]          -1.687e+00      +7.495e-01       -2.456e-01
+0.35   [3.2, 11.8]          -8.779e-01      +6.411e-01       -2.113e-01
+0.50   [3.6, 11.8]          -3.502e-01      +4.818e-01       -1.785e-01
+0.65   [4.5, 10.9]          -8.681e-02      +3.513e-01       -1.442e-01
+0.80   [7.2, 8.6]           -1.433e-03      +2.595e-01       -1.049e-01
+------------------------------------------------------------------------------------
+simple fold (calT>0 at every lobe point) : PASS
+radial transversality (dF/dr<0 at collar): PASS
+PASS_LOBE_STRUCTURE

@@ -1,0 +1,189 @@
+CMDA REVISED REPRODUCIBILITY SNAPSHOT -- 20 OCTOBER 2026
+=====================================================
+Article: Exact fiber elimination for the Levi--Civita convexity gates of the
+planar restricted three-body problem, with a global convexity reconnaissance.
+
+PUBLIC RELEASE CANDIDATE 1.4.1. Not yet published.
+The current manuscript source/PDF are in paper/. SHA256SUMS_R06.txt covers
+the complete public archive, excluding the manifest itself. Earlier code,
+data and audit inputs are retained under frozen_inputs/ for reproducibility.
+The earlier manuscript and editorial correspondence are not included.
+The new version-specific DOI must be confirmed before publication; the
+earlier DOI 10.5281/zenodo.23244862 refers only to version 1.4.0.
+
+SCIENTIFIC SCOPE
+----------------
+The algebraic identities and geometric reconstruction are exact. The numerical
+data are finite floating-point samples. NO fixed parameter pair or parameter
+region in this package has an interval numerical convexity certificate. No
+interval-certified non-convexity witness, continuous mass threshold, shell
+theorem, limiting-value theorem or dynamical-convexity theorem is supplied.
+Positive samples do not establish positivity between samples. An 80-digit
+evaluation is a precision cross-check, not an interval enclosure.
+
+The API/CSV field D_true_min is retained for backward compatibility. It means
+the sampled estimate of the fiber minimum, not an exact continuous minimum.
+mu is the DISTANT-primary mass fraction; m_r=1-mu is the regularized-primary
+fraction. c is half the Jacobi constant; Delta c=c-c_L1(mu) is computed using
+a floating-point critical value, without a parameter-dependent enclosure.
+
+ENVIRONMENT
+-----------
+Tested Python 3.12.14, NumPy 2.5.4, SciPy 1.18.1, SymPy 1.14.0,
+mpmath 1.3.0, Matplotlib 3.11.2. Install the direct dependencies with:
+
+  python -m pip install -r requirements.txt
+
+The per-suite environment JSON files also record source hashes. A standard
+Python installation is sufficient; no service, private account or network
+access is required after dependencies are installed.
+
+DIRECTORIES
+-----------
+code/                  Authoritative revised numerical code and figure drivers.
+audit/                 Exact identity checks and comparative numerical audit.
+results/phase_map_data.csv
+                       Revised 112-pair phase-map data used for Figure 1.
+results/parameter_audit/
+                       Original/rerun/revised comparisons, all extrema, actual
+                       base points/fiber angles, lunar and mass refinements,
+                       and 80-digit negative-witness checks.
+results/figure_audit/   Figure 2 full plotted samples, first radial roots,
+                       ray profiles, Figure 3 mass series and witnesses,
+                       reflection tests and resolution comparison.
+results/symbolic_audit/ Logs for the three unchanged original symbolic audits.
+paper/figures/         The exact three image files used in this revised paper.
+frozen_inputs/         Preserved original scripts/data and scientific audits,
+                       including the old figure reconstruction. Historical
+                       sources are for comparison, not the revised generators.
+CHANGELOG_AND_SCOPE.txt Detailed cause, consequences and requested scope.
+
+RUN EXACT SYMBOLIC CHECKS
+------------------------
+Run from the snapshot root:
+
+  python code/fiber_elimination_audit.py
+  python code/rotation_term_audit.py
+  python audit/verify_gates_cache.py
+  python audit/criterion_symbolic_audit.py
+
+Expected: PASS_C82_FIBER_ELIMINATION_AUDIT (8 zero residuals),
+PASS_ROTATION_TERM_AUDIT (zero symbolic residual plus numerical spot checks),
+PASS_GATES_CACHE (6 zero residuals), and
+PASS_GEOMETRIC_CRITERION_RECONSTRUCTION (23 exact checks).
+Measured on the preparation host: about 1.5 s, 4.4 s and 173 s respectively
+for the first three original scripts. SymPy build time is machine-dependent.
+The rotation script also checks 200,000 points; maximum observed deviation
+was 4.263e-14. This numerical portion is distinct from its exact residual.
+
+REPRODUCE THE REVISED FIGURES AND DIAGNOSTICS
+------------------------------------------
+From code/:
+
+  python convexity_map.py
+  python phase_map_figure.py
+  python audit_figures.py
+  python refine_lobes.py
+  python lobe_structure.py
+
+convexity_map.py writes ../results/phase_map_data.csv. phase_map_figure.py
+uses that CSV. audit_figures.py writes Figures 2-3 to ../paper/figures and
+their complete plotted data to ../results/figure_audit. Its measured numerical
+run is approximately 3 seconds after imports. refine_lobes.py compares the
+recorded 200x80x192 lobe grid with 400x160x768 at three selected masses.
+lobe_structure.py retains the five-mass diagnostic whose endpoint values
+are cited in the article. The Figure 3 generator additionally records all
+13 masses mu=.20,.25,...,.80; its ray panel uses 160 radial samples.
+
+For the complete historical-versus-revised audit, run from the snapshot root:
+
+  python audit/audit_parameters.py --source frozen_inputs/code --reference frozen_inputs/results/phase_map_data.csv --corrected-source code --output results/parameter_audit --suite all
+  python audit/heavy_side_check.py
+  python audit/high_precision_witnesses.py
+
+The original and revised directories must remain distinct: the historical
+comparison intentionally preserves the old boundary-NaN behavior. Running
+the full audit overwrites numerical output files, not source files. An
+individual suite may be selected: phase, critical, spot, corrected, threshold,
+or witnesses. The corrected suite requires phase/critical outputs first;
+witnesses should be run last. Full reproduction takes several minutes to
+tens of minutes depending on the host. Recorded examples: the 112-pair
+historical phase suite took 88 s, and the dedicated 600x400x1024 mass-transition
+study with 12 numerical mass-bisection steps took 287 s.
+
+RESULT-TO-FILE MAP
+------------------
+Section 3 / Appendix A:
+  code/fiber_elimination_audit.py, code/rotation_term_audit.py,
+  audit/verify_gates_cache.py; logs in results/symbolic_audit/.
+Section 2.2 / reflection laws in Section 6:
+  audit/criterion_symbolic_audit.py and its 23-check JSON.
+Section 4 rectangle, Moon component:
+  results/parameter_audit/spot_details.json, spot_summary.json,
+  spot_witnesses.csv. Four parameter corners only. Explicit 400-ray/160-row
+  base grid; reduced tangential gate and nonsingular F=0 collar formula.
+  This new declared grid reproduces the existing conservative sampled
+  values 2.29e-3 and 6.95e-4. A separate file specifying the older corner
+  grid was not recovered.
+Figure 1 / Section 5.2 global grid:
+  results/phase_map_data.csv; 16 masses x 7 offsets, 192 rays x 80 rows,
+  256 fiber angles, 80 worst-amplitude-bound candidates union the outermost
+  three rows. The revised boundary row uses the F=0 gate formulas.
+  phase_revised_comparison.csv records every before/after difference.
+Light-side sign transition at Delta c=1e-4:
+  light_threshold_details.json and light_threshold_witnesses.csv.
+  Dedicated exhaustive 600-ray x 400-row x 1024-fiber-angle samples give
+  positive values at m_r=.04 and negative values at .05. The manuscript
+  conservatively states this sampled sign bracket. The additional mass
+  bisection near .04915 is sampling-dependent and supplies no validated
+  threshold or proof of continuous-mass monotonicity.
+Terrestrial values at Delta c=.01,.011,.012 and near-critical comparison:
+  spot_details.json and spot_witnesses.csv. The Earth entry at .01 was
+  already negative in the frozen CSV and had been omitted from the text.
+Heavy-side value near m_r=.999:
+  audit/heavy_side_check.py and results/parameter_audit/heavy_side_check.json,
+  using the dedicated 600x240x512 grid recorded in the preserved original
+  audit report. This differs in resolution from the coarse phase map.
+Lunar shell estimate:
+  lunar_revised_details.json, lunar_revised_track_witnesses.csv,
+  lunar_revised_bisection.json, lunar_summary.json, corrected_summary.json.
+  Original 600x400x1024 selection: 120 worst-bound candidates union the
+  outermost three radial rows. Radial/fiber stability data are separately
+  recorded. The nominal width 9.5376e-6 is a numerical estimate, not an
+  interval certificate. The reported .99 location is s/s*, not r/r*.
+Figure 2 / Observation 6.1:
+  results/figure_audit/data/figure2_base_samples.csv (43,200 samples),
+  figure2_boundary.csv, figure2_ray_profiles.csv, referee_witnesses.csv.
+  Physical angles are used on all 720 rays; 60 radial fractions, 192 fiber
+  angles. The referee's four witnesses additionally use 4096 fiber angles.
+Figure 3 / Observation 6.2:
+  figure3_mass_series.csv, figure3_lobe_ray.csv, lobe_ranges.json,
+  lobe_refinement_report.json. The original image had no supplied generator;
+  the revised documented generator reproduces the quoted diagnostic values.
+Independent negative-witness checks:
+  results/parameter_audit/negative_witnesses_80digits.csv and summary;
+  results/symbolic_audit/high_precision_witnesses.json for the referee points.
+  These evaluate the actual gate D, not just its amplitude lower bound.
+
+WHAT CHANGED IN THE NUMERICAL CODE
+----------------------------------
+1. Figure 2 used theta modulo pi/2 for both its full-plane boundary and its
+   point construction. That applies quarter-turns where reflections are
+   required. Its complete generator now uses the physical ray angle.
+2. Numerically located collar roots can have tiny negative F residuals.
+   The revised global/lunar routines evaluate the nonsingular F=0 formulas
+   on the last radial row. Interior samples are not clamped or changed.
+   This removes 1719 omitted boundary samples across the 112 old map cases.
+   Some sampled extrema change, but no map sign classification changes.
+3. The lunar script reuses the already-audited coefficient cache instead of
+   constructing a duplicate symbolic determinant. The formulas, grids and
+   candidate selection remain unchanged.
+4. Figure generators/diagnostic wording consistently distinguish sampled
+   minima from exact minima, avoid unsupported orbit identification, and
+   use 'one negative direction' instead of singularity-theory terminology.
+
+There is no interval-certification subpackage because no such certificate
+is claimed. Frozen source checksums are preserved for provenance; any
+ORIGINAL_FULL_TREE_MANIFEST_REFERENCE.txt refers to the older full repository,
+of which only relevant scientific files are included here. The new root
+SHA256SUMS_R06.txt is the complete manifest for this supplied snapshot.

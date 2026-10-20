@@ -3,17 +3,16 @@
 Dynamical-relevance observation for the PCR3BP non-convexity window.
 
 In the comparable-mass regime the Levi--Civita determinant gate D becomes
-negative in a pair of lateral lobes hugging the collar. This script localizes
-those lobes in base polar coordinates and measures the true fiber minimum of D
-along the two coordinate axes, which carry the retrograde and direct collision
-orbits of Birkhoff. The finding (see the accompanying paper, Observation 6.1):
+negative in reflection-related lateral lobes hugging the collar. This script localizes
+those lobes in base polar coordinates and samples the fiber minimum of D
+along the two coordinate axes, which are geometric base axes, not identified periodic trajectories. The finding (see the accompanying paper, Observation 6.1):
 the lobes sit off-axis (angular offset >= a few degrees), while D is strictly
 positive along both axes.
 
 Outputs paper/figures/dynamical_relevance.png and prints the on-axis minima.
 This is a floating-point observation at a finite grid, not a proof.
 
-Convention: mu is the large-primary mass parameter; c is one half the Jacobi
+Convention: mu is the distant-primary mass fraction; c is one half the Jacobi
 constant; s = |z|^2. Requires sympy, numpy, scipy, matplotlib.
 
 Author: Cesar Augusto Grisa (UFF, Brazil).
@@ -60,7 +59,7 @@ CP, SP_, C2, S2 = np.cos(PH), np.sin(PH), np.cos(2*PH), np.sin(2*PH)
 
 
 def Dmin(x, y, mf, cc):
-    """True fiber minimum of D at base point (x, y) via the exact trig polynomial."""
+    """Sampled fiber minimum of D at base point (x, y) via the exact trig polynomial."""
     A0, A1, B1, A2, B2 = (f(x, y, mf, cc) for f in (fA0, fA1, fB1, fA2, fB2))
     return np.min(A0 + A1*CP + B1*SP_ + A2*C2 + B2*S2)
 
@@ -133,4 +132,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from audit_figures import figure2
+    figure2()

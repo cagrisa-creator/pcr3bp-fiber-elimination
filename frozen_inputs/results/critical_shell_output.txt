@@ -1,0 +1,28 @@
+c_L1(Earth--Moon pair) = 1.594170558874620   [regularized component: MOON, m_r=0.012151]
+
+dc            D_min
+--------------------------------
+1.00e-03    +1.4951e-04
+3.00e-04    +4.7927e-05
+1.00e-04    +1.5585e-05
+3.00e-05    +3.5907e-06
+1.00e-05    +8.1707e-08
+5.00e-06    -8.0507e-07
+2.00e-06    -1.3427e-06
+1.00e-06    -1.5220e-06
+5.00e-07    -1.6116e-06
+1.00e-07    -1.6833e-06
+
+Linear extrapolation: D_min(dc) ~ 1.517e-01 * dc + (-9.975e-07)
+  -> D_min(0+) ~ -9.975e-07  (strictly negative: intrinsic to the limit)
+
+Shell width dc* = 9.5376e-06
+Non-convex shell: c in (c_L1, 1.5941800965]
+
+At dc = 1e-6: D_min = -1.5220e-06, theta* = 0.0760 (heavy-primary collision axis), s/s_boundary = 0.990
+Minimizer is far from the s = 1/2 singularity guard: not a regularization artifact.
+
+Stability under radial refinement at dc = 3e-6:
+  n_s =   60: D_min = -9.3827e-07
+  n_s =  150: D_min = -1.1319e-06
+  n_s =  400: D_min = -1.1634e-06

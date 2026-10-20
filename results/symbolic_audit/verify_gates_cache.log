@@ -1,0 +1,7 @@
+calT  residual = 0
+A0e   residual = 0
+A1e   residual = 0
+B1e   residual = 0
+A2e   residual = 0
+B2e   residual = 0
+PASS_GATES_CACHE

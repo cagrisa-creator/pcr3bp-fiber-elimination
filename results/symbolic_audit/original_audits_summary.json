@@ -1,0 +1,20 @@
+[
+  {
+    "script": "code/fiber_elimination_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5074491999985185,
+    "log": "results/symbolic_audit/fiber_elimination_audit.log"
+  },
+  {
+    "script": "code/rotation_term_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.401820099999895,
+    "log": "results/symbolic_audit/rotation_term_audit.log"
+  },
+  {
+    "script": "audit/verify_gates_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 173.43034780000016,
+    "log": "results/symbolic_audit/verify_gates_cache.log"
+  }
+]

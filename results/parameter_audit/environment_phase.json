@@ -1,0 +1,19 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "sympy": "1.14.0",
+  "source_files": {
+    "convexity_map.py": "ba96b99be6b1b1e4758b5096d2929415791b6e267566c7becd04bc4182addb67",
+    "critical_shell.py": "dd37ea6c1fa16e527a8b0184e6671a88b37a3d372848936ab6b1ef6b4a83c9bf",
+    "dynamical_relevance.py": "7061b39a3ca4ddd68c93fa00fc6445d9316cc6e3749d2da7a9b985ea6ec190bb",
+    "fiber_elimination_audit.py": "de78b80bd98c84b3a27213f58af0eab950f6106566ed9702e81ba1871bcec795",
+    "lobe_structure.py": "1fbb7538c39850193b863e791f805d21fd5fe49690195bf5336f039d96876f2d",
+    "phase_map_figure.py": "70567ed5a725f6c9033eae080a7b4d9eb3bca3c39413202f478359f265e56e9d",
+    "rotation_term_audit.py": "48b2a0d2d105733eabf1653e6d8e51148971b761f5b9a3b307f52641556d8e74",
+    "run_all.py": "01ab62b008867eefefe0dc8e9786592b0a1cd6ab4c5e9c77cfa06d76cb8df6a0",
+    "_gates_cache.py": "dfe88c5b687aeafbc0f75d2e099fa7ca8b184a94cb905c4986558e73e8c11506"
+  },
+  "script_sha256": "194e77e5df7d61cc0497468bb4fb8858c10a765f433ba5a595b01b360929d113",
+  "numerical_scope": "finite float64 sampling only; no interval arithmetic or domain-wide numerical certificate"
+}

@@ -1,43 +1,53 @@
 # Exact fiber elimination for the PCR3BP Levi-Civita convexity gates
 
-Reproducibility package and manuscript sources for
+Reproducibility sources and manuscript by César Augusto Grisa. Release candidate **1.4.1**, prepared
+20 October 2026. These sources update the existing GitHub repository. A version 1.4.1 Zenodo archive and its new DOI are still pending.
 
-> **Exact fiber elimination for the Levi-Civita convexity gates of the planar
-> restricted three-body problem, with a global convexity reconnaissance**
-> C. A. Grisa (Universidade Federal Fluminense).
+## Existing project and archival lineage
 
-## DOI
+- Repository: https://github.com/cagrisa-creator/pcr3bp-fiber-elimination
+- All-version Zenodo DOI: https://doi.org/10.5281/zenodo.23244861
+- Earlier published version 1.4.0: https://doi.org/10.5281/zenodo.23244862
 
-Zenodo DOI for this revised package:
+The earlier version DOI must not be used to identify this revised candidate.
+A new version must be created within that same Zenodo record family.
 
-- https://doi.org/10.5281/zenodo.23244862
+## Current files
 
-GitHub repository:
+- `paper/main.tex` and `paper/main.pdf`: revised manuscript (14 pages).
+- `paper/figures/`: exact assets for all three figures.
+- `code/`, `audit/`, `results/`: revised implementations, exact checks,
+  complete numerical samples, witness coordinates and scientific logs.
+- `REPRODUCIBILITY.txt`: commands, dependencies, grids and result-to-file map.
+- `CHANGELOG_AND_SCOPE.txt`: corrections and their numerical consequences.
+- `frozen_inputs/`: historical code/data required for the comparison runs.
+- `SHA256SUMS_R06.txt`: complete manifest for this public archive.
 
-- https://github.com/cagrisa-creator/pcr3bp-fiber-elimination
+The current paper and its scientific data take precedence over legacy
+Word/HAL/deposit instructions retained in older Git history or directories.
+Those older files are not updated manuscript variants.
 
-## Revision scope
+## Scientific status
 
-- Keeps the paper focused on exact fiber elimination and numerical reconnaissance.
-- Removes the unsupported companion-manuscript dependency from the manuscript draft.
-- Does not add material from outside the submitted-manuscript and referee-response scope.
-- Addresses the referee's precision requests on dimension counting, the base/collar distinction, determinant lower bound versus true fiber minimum, numerical evidence versus interval certification, notation, bibliography, and identifiers.
+The fiber identities and geometric reconstruction are exact. The numerical
+reconnaissance consists of finite floating-point samples. No fixed parameter
+pair or parameter region has an interval numerical convexity certificate.
+An 80-digit witness check is a precision cross-check, not an interval enclosure.
+The seven principal sections, numbered equations, central proofs and
+bibliography are preserved. Corrections include reflected Figure 2 domains,
+the explicit geometric derivation, complete reproducibility data and precise
+sampling qualifications. All 112 phase-map sign classifications are unchanged.
 
-## What is rigorous, and what is reconnaissance
+## Reproduce
 
-- **Rigorous:** the exact algebraic fiber-elimination identities and the symbolic audit.
-- **Rigorous sufficient bound:** the determinant gate is treated by an exact harmonic decomposition and a rigorous two-variable lower bound.
-- **Numerical spot check:** the Earth-Moon values in the revised manuscript are pointwise numerical checks, not interval certificates.
-- **Floating-point reconnaissance:** the global mass-energy map and dynamical-relevance observations are exploratory and are labeled as such.
+Install `requirements.txt`, then follow `REPRODUCIBILITY.txt`.
+The unchanged core exact audits, new 23-check reconstruction and packaged
+diagnostic driver passed. All three figures were regenerated from this code.
+Code/data files are identical to the audited snapshot except that one audit
+summary replaces local machine paths with relative paths. Editorial letters,
+referee reports and private continuity documents are excluded.
 
-## Core files
+## License
 
-- `paper/main.tex` - manuscript source.
-- `paper/main.pdf` - compiled manuscript.
-- `paper/figures/phase_map.png` and `paper/figures/dynamical_relevance.png` - revised figures.
-- `code/fiber_elimination_audit.py` and `code/rotation_term_audit.py` - symbolic audit scripts.
-- `CITATION.cff` - citation metadata.
-
-## Notes
-
-The exact algebraic identities and symbolic audits are the rigorous part of the package. The Earth-Moon numerical values, global mass-energy map, and dynamical-relevance observations are numerical checks/reconnaissance unless explicitly stated otherwise in the manuscript.
+MIT applies to the source code. The manuscript and figures remain copyright
+the author, with all rights reserved pending publication; see `LICENSE`.

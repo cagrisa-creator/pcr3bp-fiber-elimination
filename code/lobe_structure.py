@@ -5,18 +5,17 @@ Fine structure of the non-convexity lobes (Observation 6.2 of the paper).
 Two quantitative facts about the off-axis lobes where the determinant gate is
 negative, across the comparable-mass band (c = c_L1 + 1e-3):
 
-  (F1) Simple-fold structure. At every base point inside a lobe (true fiber
+  (F1) One-negative-direction sign pattern. At sampled base points inside a lobe (sampled fiber
        minimum of D negative), the reduced tangential gate calT stays strictly
-       positive, with a uniform margin. The tangential gate controls the trace
+       positive, at the recorded finite sampling. The tangential gate controls the trace
        of the convexity pencil and the determinant gate its determinant, so a
        point with D<0<calT carries exactly ONE negative principal direction:
-       the non-convexity is a single simple fold, never a double concavity.
+       the sampled sign pattern has one negative direction.
 
   (F2) Radial transversality (fiberwise star-shapedness of the base).
        Along every ray the defining function F crosses the collar with
-       dF/dr < 0, uniformly, including on rays through the lobes. The base
-       component is radially star-shaped and the LC non-convexity does not
-       degrade the star-shape margin.
+       dF/dr < 0, uniformly, including on rays through the lobes. These sampled derivatives support radial star-shapedness of the base;
+       they do not certify it throughout the component.
 
 Floating-point observation at a finite grid, not a proof. Conventions match
 convexity_map.py / dynamical_relevance.py: mu = DISTANT-primary mass fraction
@@ -177,7 +176,7 @@ def main():
         if r['max_dFdr'] >= 0:
             ok_star = False
     print("-" * 84)
-    print("simple fold (calT>0 at every lobe point) : %s" % ("PASS" if ok_fold else "FAIL"))
+    print("one negative direction (calT>0 at sampled lobe points) : %s" % ("PASS" if ok_fold else "FAIL"))
     print("radial transversality (dF/dr<0 at collar): %s" % ("PASS" if ok_star else "FAIL"))
     if ok_fold and ok_star:
         print("PASS_LOBE_STRUCTURE")

@@ -1,0 +1,16 @@
+{
+  "elapsed_seconds": 286.6720000000023,
+  "nth": 600,
+  "ns": 400,
+  "nphi": 1024,
+  "all_finite_base_fiber_samples": true,
+  "delta_c": 0.0001,
+  "mass_fraction_of_regularized_primary": true,
+  "empirical_transition_bracket": [
+    0.04914794921875,
+    0.049150390625000005
+  ],
+  "bracket_not_interval_certificate": true,
+  "continuous_mass_monotonicity_not_proved": true,
+  "mr_005_D_sampled_min": -5.748079738182196e-06
+}

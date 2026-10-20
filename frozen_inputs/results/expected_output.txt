@@ -1,0 +1,41 @@
+==================================================================
+PCR3BP fiber-elimination: reproducibility driver
+==================================================================
+[1/5] Exact symbolic audit ...
+R1_GAP_RESIDUAL            = 0
+R2_PERFECT_SQUARE_RESIDUAL = 0
+R3_ATTAINED_RESIDUAL       = 0
+R4_GRAD_SA_RESIDUAL        = 0
+R5_LAP_SA_RESIDUAL         = 0
+R6_HARMONIC_GENERIC_RES    = 0
+R7_detM_sum_RESIDUAL       = 0
+R8_amp2_RESIDUAL           = 0
+PASS_C82_FIBER_ELIMINATION_AUDIT
+      -> PASS
+[2/5] Critical-energy sanity + spot reconnaissance ...
+      c_L1(equal masses) = 2.000000 (expected 2.000000)
+      MOON component (Earth--Moon)       : D_true_min=+1.495e-04  ok
+      EARTH component, near critical     : D_true_min=-1.732e+00  ok
+      EARTH component, dc=0.02           : D_true_min=+1.138e+00  ok
+      equal masses, near critical        : D_true_min=-2.938e-01  ok
+      unequal masses, larger energy      : D_true_min=+2.074e+01  ok
+      -> PASS
+[3/5] Dynamical-relevance observation (on-axis check) ...
+      min D along retrograde axis (z2=0) = +2.0745e-01  (positive: True)
+      min D along direct axis (z1=0)     = +5.1902e+00  (positive: True)
+      (figure: run `python dynamical_relevance.py` to regenerate)
+      -> PASS
+[4/5] Fine structure of the non-convexity lobes ...
+      mu=0.20 lobe band=[3.0, 11.3]    min calT=+8.835e-01  max dF/dr=-2.456e-01
+      mu=0.50 lobe band=[3.8, 11.3]    min calT=+5.160e-01  max dF/dr=-1.785e-01
+      mu=0.80 lobe band=[7.6, 8.3]     min calT=+2.773e-01  max dF/dr=-1.049e-01
+      simple fold (calT>0 in lobes): ok
+      radial transversality (dF/dr<0): ok
+      -> PASS
+[5/5] Rotation-term closed form (elliptic coordinates) ...
+      symbolic residual (should be 0): 0
+      max |lhs - rhs| over 200000 random points: 4.263e-14
+      PASS_ROTATION_TERM_AUDIT
+      -> PASS
+==================================================================
+ALL CHECKS PASSED

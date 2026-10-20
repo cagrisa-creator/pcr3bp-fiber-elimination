@@ -1,0 +1,39 @@
+{
+  "status": "PASS_GEOMETRIC_CRITERION_RECONSTRUCTION",
+  "kind": "exact symbolic identities, no interval positivity certificate",
+  "sympy_version": "1.14.0",
+  "checks": {
+    "LC_jacobian": "PASS",
+    "LC_norm": "PASS",
+    "completed_square_shift": "PASS",
+    "M1_is_Hessian_B1": "PASS",
+    "M2_is_Hessian_B2": "PASS",
+    "canonical_LC_momentum": "PASS",
+    "regularized_kinetic_square": "PASS",
+    "F_is_r_times_Omega_minus_c": "PASS",
+    "half_Hessian_quadratic_form": "PASS",
+    "T_is_4F_trace_C": "PASS",
+    "D_is_4F_det_C": "PASS",
+    "interior_tangent_constraint": "PASS",
+    "interior_restricted_Hessian": "PASS",
+    "boundary_adjugate_identity": "PASS",
+    "boundary_tangent_constraint": "PASS",
+    "reflection_z1_shift": "PASS",
+    "reflection_z1_kinetic": "PASS",
+    "reflection_z1_F": "PASS",
+    "reflection_z1_L_conjugacy": "PASS",
+    "reflection_z2_shift": "PASS",
+    "reflection_z2_kinetic": "PASS",
+    "reflection_z2_F": "PASS",
+    "reflection_z2_L_conjugacy": "PASS"
+  },
+  "total_checks": 23,
+  "conventions": {
+    "physical_H": "0.5*|p|^2 + q2*p1 - (q1-mu)*p2 - (1-mu)/|q| - mu/|q-e|",
+    "LC_map": "q=(2*(z1^2-z2^2),-4*z1*z2)",
+    "canonical_momentum": "w=(Dq)^T p",
+    "scaled_momentum": "v=w/4; constant invertible linear scaling preserves convexity",
+    "regularized_K": "K=|v+B(z)|^2-F(z)=|q|*(H+c)",
+    "B": "(-(2*s+mu)*z2,(2*s-mu)*z1)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pairs": 112,
+  "sign_changes": 0,
+  "boundary_NaNs_before": 1719,
+  "boundary_NaNs_after": 0,
+  "max_D_abs_change": 0.013176514936697803,
+  "max_T_abs_change": 0.041253958546439276,
+  "max_Dbound_abs_change": 6.661338147750939e-15,
+  "max_lunar_track_abs_change": 2.0812361843690688e-16,
+  "lunar_endpoint_revised": 9.537642849143594e-06,
+  "lunar_endpoint_historical": 9.537642849143594e-06,
+  "lunar_endpoint_change": 0.0,
+  "no_interval_certificate": true
+}

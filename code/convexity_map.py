@@ -8,7 +8,8 @@ For a grid of mass ratios and subcritical energy offsets, this module evaluates:
                       (Lemma 1: exactly min_phi T);
   * calD_bound_min -- minimum of the rigorous determinant lower bound calD
                       (Corollary to Lemma 4: A0 - sqrt(A1^2+B1^2) - 128 F^2 s);
-  * D_true_min     -- minimum over the fiber of the exact degree-two trigonometric
+  * D_true_min     -- finite-sample estimate of the fiber minimum of the exact
+                      degree-two trigonometric
                       polynomial for D (Lemma 3), evaluated on the worst base points UNION the
                       entire collar band (v1.3.0 fix; see D_true evaluation below).
 
@@ -37,6 +38,7 @@ import csv
 import warnings
 warnings.filterwarnings('ignore')
 from scipy.optimize import brentq
+from lobe_structure import _blocks as _derivative_blocks
 
 # ---------------------------------------------------------------------------
 # Symbolic setup: defining function F, gradient, Hessian, structure matrices,
@@ -112,6 +114,21 @@ def cL1_of(muf):
     return float((xL1**2)/2 + (1 - eps)/(xL1 + eps) + eps/((1 - eps) - xL1))
 
 
+def apply_collar_values(X, Y, muf, cc, A0, A1, B1, A2, B2, T=None):
+    """Evaluate the nonsingular F=0 formulas on the numerical boundary row.
+
+    The radial roots are floating-point approximations, not interval enclosures.
+    This prevents a tiny negative root residual from turning a boundary sample
+    into NaN inside sqrt(F). Interior samples are not clamped or modified.
+    """
+    _, gx, gy, hxx, hxy, hyy = _derivative_blocks(X[-1], Y[-1], muf, cc)
+    l11, l12, l22 = -0.5*hxx, -0.5*hxy, -0.5*hyy
+    A0[-1] = l22*gx*gx - 2*l12*gx*gy + l11*gy*gy
+    A1[-1] = 0.0; B1[-1] = 0.0; A2[-1] = 0.0; B2[-1] = 0.0
+    if T is not None:
+        T[-1] = gx*gx + gy*gy
+
+
 def scan(muf, cc, n_th=96, n_s=40, n_pre=2000):
     """Scan the base at (muf, cc). Returns (calT_min, calD_bound_min, D_true_min)
     or None if the collar root is not bracketed on some ray."""
@@ -136,11 +153,13 @@ def scan(muf, cc, n_th=96, n_s=40, n_pre=2000):
     r = np.sqrt(sv)
     X = r*np.cos(th)[None, :]
     Y = r*np.sin(th)[None, :]
-    Tm = float(np.nanmin(fT(X, Y, muf, cc)))
+    T_values = fT(X, Y, muf, cc)
     A0, A1, B1, A2, B2 = (f(X, Y, muf, cc) for f in (fA0, fA1, fB1, fA2, fB2))
+    apply_collar_values(X, Y, muf, cc, A0, A1, B1, A2, B2, T_values)
+    Tm = float(np.nanmin(T_values))
     Db = A0 - np.sqrt(A1**2 + B1**2) - np.sqrt(A2**2 + B2**2)
     Dbm = float(np.nanmin(Db))
-    # True fiber minimum of D, evaluated exactly on the union of
+    # Sampled fiber minimum of D, evaluated on the union of
     #   (i) the 80 worst base points of the lower bound Db, and
     #   (ii) the ENTIRE collar band (the three outermost radial rows on every
     #        ray, s/s_boundary >= (n_s-2)/n_s), where the bound is sharp.

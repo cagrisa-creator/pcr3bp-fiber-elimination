@@ -1,0 +1,8 @@
+{
+  "count": 111,
+  "all_actual_D_negative": true,
+  "all_reduced_T_positive": true,
+  "precision_decimal_digits": 80,
+  "interval_certificate": false,
+  "inward_shifts": 49
+}

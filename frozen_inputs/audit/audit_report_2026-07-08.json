@@ -1,0 +1,51 @@
+{
+  "A_derivacao": {
+    "identidade": true,
+    "contraprova": true
+  },
+  "B_geometria": true,
+  "C_lobulos": {
+    "casos": {
+      "mu=0.05,dc=0.0001": {
+        "full": -2.5069456498404086,
+        "heuristica": 5.95233018841742,
+        "theta_deg": 5.7095158597662765,
+        "s_frac": 0.9958333333333333,
+        "piores_pontos_interior": true
+      },
+      "mu=0.02,dc=0.0001": {
+        "full": -2.1117030782271002,
+        "heuristica": 3.9506367149198995,
+        "theta_deg": 4.507512520868113,
+        "s_frac": 1.0,
+        "piores_pontos_interior": true
+      },
+      "mu=0.012151,dc=0.0001": {
+        "full": -1.81067095491888,
+        "heuristica": 3.142889494702339,
+        "theta_deg": 4.056761268781302,
+        "s_frac": 1.0,
+        "piores_pontos_interior": true
+      },
+      "mu=0.001,dc=0.0001": {
+        "full": -0.5783352446802084,
+        "heuristica": 1.2761157586409573,
+        "theta_deg": 2.1035058430717863,
+        "s_frac": 1.0,
+        "piores_pontos_interior": true
+      }
+    },
+    "falso_convexo": true,
+    "N_convergencia": [
+      -2.5069456498404086,
+      -2.5655196521583457,
+      -2.5767204143581344
+    ],
+    "N_pass": true
+  },
+  "D_calibracao": {
+    "critical_shell": true,
+    "lobulos": true
+  },
+  "veredicto": true
+}

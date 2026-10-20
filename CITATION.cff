@@ -1,14 +1,13 @@
 cff-version: 1.2.0
-message: "If you use this software or the accompanying manuscript package, please cite the archived Zenodo release."
-title: "Exact fiber elimination for the Levi--Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
+message: "Release candidate 1.4.1; new version DOI and release date must be confirmed before publication. Version 1.4.0 DOI identifies only the earlier archive."
+type: software
+title: "Exact fiber elimination for the Levi-Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
 authors:
   - family-names: Grisa
     given-names: César Augusto
-    affiliation: "Universidade Federal Fluminense"
     email: cagrisa@id.uff.br
-version: "1.4.0"
-date-released: "2026-10-08"
-doi: "10.5281/zenodo.23244862"
+    orcid: "https://orcid.org/0000-0002-1782-6883"
+version: "1.4.1"
 license: MIT
 repository-code: "https://github.com/cagrisa-creator/pcr3bp-fiber-elimination"
 keywords:
@@ -16,16 +15,19 @@ keywords:
   - Levi-Civita regularization
   - strict convexity
   - convexity gates
-  - computer-assisted proof
   - numerical reconnaissance
 abstract: >-
-  This package accompanies a revised manuscript on exact fiber elimination for
-  the Levi-Civita convexity gates of the planar circular restricted three-body
-  problem. For fixed parameters, the regularized surface is tested over a
-  three-dimensional domain: a two-dimensional Levi-Civita base and a fiber
-  angle. The tangential gate has an exact two-variable fiber minimum, while the
-  determinant gate has an exact harmonic decomposition giving a rigorous
-  sufficient two-variable lower bound. The package also contains a numerical
-  Earth-Moon spot check and a floating-point global reconnaissance; these
-  numerical components are not interval certificates unless explicitly stated
-  otherwise.
+  Exact fiber-elimination identities and a local geometric reconstruction,
+  with computational audits and finite floating-point reconnaissance.
+  No fixed parameter pair or parameter region is interval-certified.
+  This candidate corrects the reflection/domain reconstruction in Figure 2,
+  completes the documented data and figure generators, and preserves the
+  central identities and all 112 phase-map sign classifications.
+references:
+  - type: software
+    title: "Exact fiber elimination for the Levi-Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
+    authors:
+      - family-names: Grisa
+        given-names: César Augusto
+    version: "1.4.0"
+    doi: "10.5281/zenodo.23244862"

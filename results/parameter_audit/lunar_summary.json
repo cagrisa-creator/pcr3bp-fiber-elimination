@@ -1,0 +1,12 @@
+{
+  "c_L1": 1.59417055887462,
+  "nominal_sampled_shell_endpoint": 9.537642849143594e-06,
+  "final_float_bisection_bracket": [
+    9.53764284029603e-06,
+    9.537642857991158e-06
+  ],
+  "bracket_is_interval_certificate": false,
+  "no_limit_as_dc_tends_zero_proved": true,
+  "max_track_direct_harmonic_abs_difference": 7.453889935837843e-20,
+  "boundary_nan_omission_in_historical_method": true
+}

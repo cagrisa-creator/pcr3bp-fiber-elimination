@@ -1,0 +1,86 @@
+--- original/dynamical_relevance.py
++++ corrected/dynamical_relevance.py
+@@ -3,17 +3,15 @@
+ Dynamical-relevance observation for the PCR3BP non-convexity window.
+ 
+ In the comparable-mass regime the Levi--Civita determinant gate D becomes
+-negative in a pair of lateral lobes hugging the collar. This script localizes
+-those lobes in base polar coordinates and measures the true fiber minimum of D
+-along the two coordinate axes, which carry the retrograde and direct collision
+-orbits of Birkhoff. The finding (see the accompanying paper, Observation 6.1):
+-the lobes sit off-axis (angular offset >= a few degrees), while D is strictly
+-positive along both axes.
++negative in four reflected off-axis lobes hugging the collar in the sampled
++equal-mass case. This script localizes sampled negative points and measures
++sampled fiber minima along coordinate-axis rays. These geometric slices do
++not identify periodic trajectories or establish a dynamical conclusion.
+ 
+ Outputs paper/figures/dynamical_relevance.png and prints the on-axis minima.
+ This is a floating-point observation at a finite grid, not a proof.
+ 
+-Convention: mu is the large-primary mass parameter; c is one half the Jacobi
++Convention: mu is the distant-primary mass fraction, m_r = 1-mu; c is one half the Jacobi
+ constant; s = |z|^2. Requires sympy, numpy, scipy, matplotlib.
+ 
+ Author: Cesar Augusto Grisa (UFF, Brazil).
+@@ -60,7 +58,7 @@
+ 
+ 
+ def Dmin(x, y, mf, cc):
+-    """True fiber minimum of D at base point (x, y) via the exact trig polynomial."""
++    """Sampled 192-angle fiber minimum via the exact trig polynomial."""
+     A0, A1, B1, A2, B2 = (f(x, y, mf, cc) for f in (fA0, fA1, fB1, fA2, fB2))
+     return np.min(A0 + A1*CP + B1*SP_ + A2*C2 + B2*S2)
+ 
+@@ -81,10 +79,9 @@
+ 
+     fig, ax = plt.subplots(1, 2, figsize=(12, 5.4))
+ 
+-    # Panel 1: where D<0 lives (the lobes), with the two orbit axes.
++    # Panel 1: sampled negative determinant values and coordinate axes.
+     for t in np.linspace(0, 2*np.pi, 720, endpoint=False):
+-        tq = abs((t) % (np.pi/2))
+-        r0 = sstar(min(tq, np.pi/2 - 1e-6) if tq < np.pi/2 else np.pi/4, mf, cc)
++        r0 = sstar(t, mf, cc)
+         if r0 is None:
+             continue
+         for fr in np.linspace(0.5, 1.0, 60):
+@@ -93,13 +90,13 @@
+             if Dmin(x, y, mf, cc) < 0:
+                 ax[0].plot(x, y, 's', color='#d62728', ms=2.5)
+     tt = np.linspace(0, 2*np.pi, 400)
+-    rb = [np.sqrt(sstar(min(abs((t) % (np.pi/2)), np.pi/2 - 1e-6), mf, cc) or 0) for t in tt]
++    rb = [np.sqrt(sstar(t, mf, cc) or 0) for t in tt]
+     ax[0].plot(np.array(rb)*np.cos(tt), np.array(rb)*np.sin(tt), '-', color='#888', lw=1, label='collar (F=0)')
+-    ax[0].plot([-0.75, 0.75], [0, 0], '-', color='#1f77b4', lw=2, label='retrograde-orbit axis')
+-    ax[0].plot([0, 0], [-0.75, 0.75], '-', color='#2ca02c', lw=1.5, label='direct-orbit axis')
+-    ax[0].plot([], [], 's', color='#d62728', ms=6, label='D<0 (non-convex)')
++    ax[0].plot([-0.75, 0.75], [0, 0], '-', color='#1f77b4', lw=2, label='axis $z_2=0$')
++    ax[0].plot([0, 0], [-0.75, 0.75], '-', color='#2ca02c', lw=1.5, label='axis $z_1=0$')
++    ax[0].plot([], [], 's', color='#d62728', ms=6, label='sampled $D_{\\min}<0$')
+     ax[0].set_aspect('equal')
+-    ax[0].set_title('Where D<0 lives (equal masses, $c=c_{L_1}+10^{-3}$)')
++    ax[0].set_title('Where $D_{\\min}<0$ lives (equal masses, $c=c_{L_1}+10^{-3}$)')
+     ax[0].legend(fontsize=8, loc='upper right')
+     ax[0].set_xlabel('$z_1$'); ax[0].set_ylabel('$z_2$')
+ 
+@@ -116,15 +113,15 @@
+             on_axis_min = min(D)
+     ax[1].axhline(0, color='k', lw=0.8, ls='--')
+     ax[1].set_xlabel('radial fraction $s/s^*$ (1.0 = collar)')
+-    ax[1].set_ylabel('true determinant minimum over fiber')
+-    ax[1].set_title('D stays positive on-axis, dips below zero only off-axis')
++    ax[1].set_ylabel('sampled determinant minimum over fiber')
++    ax[1].set_title('Sampled determinant profiles along three base rays')
+     ax[1].legend(fontsize=9)
+     ax[1].grid(alpha=0.3)
+     plt.tight_layout()
+     plt.savefig('../paper/figures/dynamical_relevance.png', dpi=150)
+ 
+-    # On-axis minima for both orbit axes.
+-    for th, name in [(0.0, 'retrograde axis (z2=0)'), (np.pi/2, 'direct axis (z1=0)')]:
++    # Finite sampled minima along the two coordinate axes.
++    for th, name in [(0.0, 'coordinate axis z2=0'), (np.pi/2, 'coordinate axis z1=0')]:
+         r0 = sstar(th, mf, cc)
+         vals = [Dmin(np.sqrt(fr*r0)*np.cos(th), np.sqrt(fr*r0)*np.sin(th), mf, cc)
+                 for fr in np.linspace(0.1, 0.999, 50)]

@@ -1,0 +1,7 @@
+{
+  "section4_grid": "fresh explicit 400 angular rays x 160 radial rows; all 512 fibers for D, exact reduced T and boundary formula for collar D; F=0 enforced only on numerical boundary row; no interval arithmetic",
+  "section4_minimum_sampled_T": 0.0022984390428004826,
+  "section4_minimum_sampled_collar_D": 0.000695800204432891,
+  "section4_original_grid_artifact_found": false,
+  "max_direct_harmonic_abs_difference": 1.9423351815817114e-12
+}

@@ -1,0 +1,52 @@
+REVISED SOURCE SNAPSHOT -- REQUEST-TO-CHANGE MAP
+
+1. Figure 2: replace quarter-turn radial reconstruction by physical ray roots;
+   include all four reflected sampled patches and record symmetry, sample
+   locations and direct negative witnesses. The old left-panel point domain,
+   not only its line drawing, was affected. At the old grid 908 points were
+   materially exterior. Corrected grid: no exterior points,77 negatives per
+   quadrant. The displayed minimum and axis diagnostics retain their precision.
+2. Add a local derivation of the geometric criterion in existing Section2.2:
+   physical Hamiltonian, cotangent momentum, constant scaling, second fundamental
+   form, F>0, F=0 and regularized collision. Exact central identities are unchanged.
+3. State explicitly that no fixed pair or region is interval-certified.
+   Give the actual sampled parameter domains/grids and correct the lunar .99
+   location to s/s*, not r/r*. Symbolic identity checks are not positivity checks.
+4. Supply complete scripts, plotted data, extrema/witness locations, dependencies,
+   commands, logs, complete public source tree and full SHA256 manifest.
+   The original Figure3 generator was absent; regenerate it from documented
+   diagnostic grids, preserving the quoted endpoint values. Restore Figure1's
+   generator to the mass convention/labels already in the submitted image.
+5. Replace unsupported precision mr~.045 by the reproducible sampled sign bracket
+   .04/.05 at dc=1e-4. Quote the explicit600x400x1024 sample values instead of an
+   untraceable individual value. Include the terrestrial entry omitted from the
+   text at dc=.01. Use D_min and one negative direction consistently. Associate
+   lobe endpoints with their finite grid, without mass-monotonicity claims.
+   The radial band is approximately[.95,1], not[.96,1]. The heavy-side -.58
+   value is preserved with its dedicated600x240x512 provenance made explicit.
+
+Necessary numerical dependency discovered during reproduction:
+   Explicitly use nonsingular F=0 formulas at numerical collar roots. Historical
+   sqrt(F) evaluations omitted1719 boundary samples across112 map cases.
+   Some finite extrema change(max absolute D change~.01318,T change~.04125),
+   but all112 phase-map sign classifications and the nominal lunar endpoint
+   9.537642849e-6 are preserved. Interior samples are unchanged. This is a
+   floating-point boundary convention, not an interval root enclosure.
+
+Scope preserved:
+   Seven main article sections, all labels and numbered equations1-15, every
+   Section3 proof and the bibliography. Subsection6.1 title changes only as
+   explicitly requested. No additional orbit/dynamical theorem, continuous
+   convexity classification, interval certificate or singularity normal form.
+   Editorial explanations are confined to the separate response document.
+
+Validation:
+   Original eight fiber residuals, rotation residual and six cache residuals
+   vanish exactly. New coordinate/reflection audit has23 exact checks.
+   Independent80-digit evaluation confirms111 actual negative-D numerical
+   witnesses, plus the referee's four points. These are not interval certificates.
+   Packaged five-part diagnostic driver: ALL CHECKS PASSED. Figures regenerated
+   from packaged sources. All Python files parsed and all JSON files validated.
+
+This is a local immutable snapshot for review. No GitHub/Zenodo publication or
+journal submission has been performed. The former public versions stay intact.
