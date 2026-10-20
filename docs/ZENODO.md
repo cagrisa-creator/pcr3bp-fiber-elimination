@@ -1,21 +1,27 @@
-# Same-record version update
+# Current Zenodo version workflow
 
-Current published version: 1.4.0, DOI 10.5281/zenodo.23244862.
-Concept DOI: 10.5281/zenodo.23244861. Candidate: 1.4.1.
+Published version 1.4.0: DOI 10.5281/zenodo.23244862.
+Concept DOI for the same family: 10.5281/zenodo.23244861.
 
-Use the existing record's **New version** action after signing in to its
-owner account. Do not create an unrelated New upload. Reserve/record the
-new version-specific DOI shown by Zenodo; never infer it from record numbers.
-Confirm the existing family and version lineage in the draft before upload.
+A new-version draft 1.4.1 has already been saved at
+https://zenodo.org/uploads/23512761 with reserved DOI
+10.5281/zenodo.23512761. Its scientific archive was uploaded and checked.
+The reserved DOI is not a registered/published archive yet. Do not create
+another draft or a separate record family.
 
-Before publishing, replace candidate wording and update CITATION.cff,
-paper/main.tex Data and Code Availability, the compiled paper/main.pdf and
-the manifests/archives with the actual reserved DOI. Keep previous DOIs as
-historical references only. Recompile and verify the identifier-only diff.
-Confirm the actual GitHub commit/tag after updating the existing repository.
+The R06 scientific sources are in the existing repository's main branch;
+the earlier PR #1 was incorporated on 20 October 2026. No GitHub release
+for 1.4.1 has been created. Whether automatic GitHub-to-Zenodo archiving is
+enabled still needs checking before any release.
 
-The repository has an older unmerged draft PR. Review/update that branch and
-merge the revision into the existing default branch only with author approval.
-Check whether GitHub-to-Zenodo archiving is enabled before releasing, to avoid
-a second record family. Public metadata does not establish that setting.
-Do not publish a GitHub release or Zenodo record without final authorization.
+Before author-authorized final publication, complete the candidate citation
+metadata and archive identifiers using the actual reserved DOI. After
+publication, verify that the record and DOI resolve, align the manuscript's
+data-availability statement, recompile, and synchronize the submission files.
+The current English manuscript identifies the verified GitHub sources and
+does not describe the reserved DOI as an already published archive.
+
+Only paper/main.tex and paper/main.pdf are the current manuscript. Obsolete
+Word/HAL mirrors are under historical/pre_R06/ and must not be used for a
+new deposit or journal submission. Final Zenodo publication and Springer
+submission still require the author's authorization.

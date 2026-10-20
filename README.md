@@ -1,7 +1,7 @@
 # Exact fiber elimination for the PCR3BP Levi-Civita convexity gates
 
 Reproducibility sources and manuscript by César Augusto Grisa. Release candidate **1.4.1**, prepared
-20 October 2026. These sources update the existing GitHub repository. A version 1.4.1 Zenodo archive and its new DOI are still pending.
+20 October 2026. These sources update the existing GitHub repository. The Zenodo 1.4.1 draft has reserved DOI 10.5281/zenodo.23512761; it has not been published or registered.
 
 ## Existing project and archival lineage
 
@@ -10,7 +10,7 @@ Reproducibility sources and manuscript by César Augusto Grisa. Release candidat
 - Earlier published version 1.4.0: https://doi.org/10.5281/zenodo.23244862
 
 The earlier version DOI must not be used to identify this revised candidate.
-A new version must be created within that same Zenodo record family.
+The new-version draft already exists in that same family at https://zenodo.org/uploads/23512761. Do not create a second draft or a separate record.
 
 ## Current files
 
@@ -21,11 +21,12 @@ A new version must be created within that same Zenodo record family.
 - `REPRODUCIBILITY.txt`: commands, dependencies, grids and result-to-file map.
 - `CHANGELOG_AND_SCOPE.txt`: corrections and their numerical consequences.
 - `frozen_inputs/`: historical code/data required for the comparison runs.
-- `SHA256SUMS_R06.txt`: complete manifest for this public archive.
+- `SHA256SUMS_R06.txt`: checksums for the listed current scientific files and metadata; obsolete Word/HAL variants are archived separately.
 
-The current paper and its scientific data take precedence over legacy
-Word/HAL/deposit instructions retained in older Git history or directories.
-Those older files are not updated manuscript variants.
+Only `paper/main.tex` and `paper/main.pdf` are current manuscript files.
+The former Word/HAL mirrors and their deposit instructions are retained under
+`historical/pre_R06/` for provenance only; they are obsolete and must not be
+used as the current manuscript. No current Word or HAL mirror is supplied.
 
 ## Scientific status
 

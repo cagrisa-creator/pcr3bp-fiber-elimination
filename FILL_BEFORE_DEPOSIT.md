@@ -1,12 +1,11 @@
-# Zenodo deposit checklist
+# Historical deposit checklist
 
-DOI:
+The earlier checklist is obsolete and is preserved
+[here](historical/pre_R06/FILL_BEFORE_DEPOSIT.md). Its version DOI identifies
+an earlier archive and must not be used to identify the revised manuscript.
 
-    https://doi.org/10.5281/zenodo.23244862
-
-Before final journal resubmission, confirm that:
-
-1. The Zenodo record is public and resolves at the DOI above.
-2. `paper/main.tex`, `paper/main.pdf`, `README.md`, and `CITATION.cff` contain the same DOI.
-3. The uploaded Zenodo files match the GitHub release/tag used for the revised package.
-4. The response to the referee cites the same GitHub repository and DOI.
+The current manuscript files are [paper/main.tex](paper/main.tex) and
+[paper/main.pdf](paper/main.pdf). For the same-record Zenodo version workflow,
+see [docs/ZENODO.md](docs/ZENODO.md); for the scientific package, see
+[REPRODUCIBILITY.txt](REPRODUCIBILITY.txt). Confirm the actual version record
+and file checksums before any deposit. This page specifies no current version DOI.
