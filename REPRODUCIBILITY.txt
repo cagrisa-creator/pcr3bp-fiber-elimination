@@ -1,14 +1,15 @@
-CMDA REVISED REPRODUCIBILITY SNAPSHOT -- 20 OCTOBER 2026
+CMDA R07 REPRODUCIBILITY SNAPSHOT -- 27 OCTOBER 2026
 =====================================================
 Article: Exact fiber elimination for the Levi--Civita convexity gates of the
 planar restricted three-body problem, with a global convexity reconnaissance.
 
-PUBLIC RELEASE CANDIDATE 1.4.1. Not yet published.
-The current manuscript source/PDF are in paper/. SHA256SUMS_R06.txt covers
+VERSION 1.4.1 -- R07 editorial/reproducibility correction.
+The current manuscript source/PDF are in paper/. SHA256SUMS_R07.txt covers
 the complete public archive, excluding the manifest itself. Earlier code,
 data and audit inputs are retained under frozen_inputs/ for reproducibility.
 The earlier manuscript and editorial correspondence are not included.
-The new version-specific DOI must be confirmed before publication; the
+The version-specific identifier is DOI 10.5281/zenodo.23512761 in the existing
+Zenodo record family. Its registration status is shown on that record. The
 earlier DOI 10.5281/zenodo.23244862 refers only to version 1.4.0.
 
 SCIENTIFIC SCOPE
@@ -56,6 +57,10 @@ paper/figures/         The exact three image files used in this revised paper.
 frozen_inputs/         Preserved original scripts/data and scientific audits,
                        including the old figure reconstruction. Historical
                        sources are for comparison, not the revised generators.
+historical/pre_R07/    Withdrawn legacy logs and their original environment/
+                       manifests, retained only as historical records.
+results/README_CURRENT.md
+                       Index separating current evidence from historical logs.
 CHANGELOG_AND_SCOPE.txt Detailed cause, consequences and requested scope.
 
 RUN EXACT SYMBOLIC CHECKS
@@ -186,4 +191,17 @@ There is no interval-certification subpackage because no such certificate
 is claimed. Frozen source checksums are preserved for provenance; any
 ORIGINAL_FULL_TREE_MANIFEST_REFERENCE.txt refers to the older full repository,
 of which only relevant scientific files are included here. The new root
-SHA256SUMS_R06.txt is the complete manifest for this supplied snapshot.
+SHA256SUMS_R07.txt is the complete manifest for this supplied snapshot.
+
+R07 OUTPUT STATUS
+-----------------
+The old critical_shell_output.txt, lobe_structure_output.txt and
+expected_output.txt have been moved verbatim from results/ to
+historical/pre_R07/results/. Their old RUN_ENV.txt and SHA256SUMS moved
+with them. They are historical output, not expected output of current code.
+Do not infer current claims or new computations from their earlier wording.
+Current scientific evidence remains in results/parameter_audit/,
+results/figure_audit/ and results/symbolic_audit/, with package_driver.log.
+The frozen_inputs/ originals remain unchanged for comparison runs; their
+historical status is explained in frozen_inputs/README_HISTORICAL.md.
+R07 changes no code, numerical samples, figures, formula or proof.
