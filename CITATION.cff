@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Release candidate 1.4.1; new version DOI and release date must be confirmed before publication. Version 1.4.0 DOI identifies only the earlier archive."
+message: "Cite version 1.4.1 using its version-specific DOI below; version 1.4.0 identifies the earlier archive."
 type: software
 title: "Exact fiber elimination for the Levi-Civita convexity gates of the planar restricted three-body problem, with a global convexity reconnaissance"
 authors:
@@ -8,6 +8,8 @@ authors:
     email: cagrisa@id.uff.br
     orcid: "https://orcid.org/0000-0002-1782-6883"
 version: "1.4.1"
+date-released: "2026-10-27"
+doi: "10.5281/zenodo.23512761"
 license: MIT
 repository-code: "https://github.com/cagrisa-creator/pcr3bp-fiber-elimination"
 keywords:
@@ -20,7 +22,7 @@ abstract: >-
   Exact fiber-elimination identities and a local geometric reconstruction,
   with computational audits and finite floating-point reconnaissance.
   No fixed parameter pair or parameter region is interval-certified.
-  This candidate corrects the reflection/domain reconstruction in Figure 2,
+  This version corrects the reflection/domain reconstruction in Figure 2,
   completes the documented data and figure generators, and preserves the
   central identities and all 112 phase-map sign classifications.
 references:

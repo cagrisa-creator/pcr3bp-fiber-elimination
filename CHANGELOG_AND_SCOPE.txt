@@ -50,3 +50,14 @@ Validation:
 
 This is a local immutable snapshot for review. No GitHub/Zenodo publication or
 journal submission has been performed. The former public versions stay intact.
+
+
+R07 -- 27 OCTOBER 2026 -- MINOR EDITORIAL/REPRODUCIBILITY CORRECTIONS
+1. Identify Kim's LC non-convexity result by content instead of an ambiguous
+   theorem number; specify the cited arXiv version for Remark 1.2. The existing
+   bibliography remains unchanged, including arXiv:1701.07258v4.
+2. Preserve the three obsolete result logs and their original environment/
+   manifest in historical/pre_R07/, separate from current evidence. The old
+   R06 root manifest is also retained there. Current documentation/manifests
+   and version identifiers are synchronized.
+No mathematical formula, proof, numerical datum, computation or figure changes.
